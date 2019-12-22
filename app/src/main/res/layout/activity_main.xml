@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/searchStart"
+        android:layout_width="403dp"
+        android:layout_height="51dp"
+        android:layout_alignRight="@+id/textmain"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:text="출발역 검색" />
+
+    <Button
+        android:id="@+id/searchFinal"
+        android:layout_width="403dp"
+        android:layout_height="51dp"
+        android:layout_alignRight="@+id/textmain"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:text="도착역 검색 "
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="51dp" />
+
+    <TextView
+        android:id="@+id/finalStation"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.879" />
+
+    <TextView
+        android:id="@+id/startStation"
+        android:layout_width="0dp"
+        android:layout_height="500dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.987" />
+
+    <TextView
+        android:id="@+id/pathLocation"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.673" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.478" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
