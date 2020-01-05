@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    tools:context="com.easysubway.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/Rlayout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:paddingLeft="12dp">
+
+        <TextView
+            android:id="@+id/textmain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:gravity="center"
+            android:text="경로 검색"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/btn_back_subway"
+            android:layout_width="36dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/btn_back_subway_black" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/start_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2E2D2D"
+        android:gravity="center"
+        android:text="출발지 검색"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/start_station"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFEB3B" />
+
+    <Button
+        android:id="@+id/final_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2E2D2D"
+        android:gravity="center"
+        android:text="도착지 검색"
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="48dp" />
+
+    <TextView
+        android:id="@+id/final_station"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFEB3B" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e9e9e9" />
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2E2D2D"
+        android:text="탐색 "
+        android:textColor="#FFFFFF" />
+
+
+</LinearLayout>

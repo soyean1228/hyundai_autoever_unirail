@@ -1,73 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context="com.easysubway.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/Rlayout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:paddingLeft="12dp">
+
+        <TextView
+            android:id="@+id/textmain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:gravity="center"
+            android:text="지하철정보"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/btn_back_subway"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/btn_back_sub" />
+
+    </RelativeLayout>
 
     <Button
-        android:id="@+id/searchStart"
-        android:layout_width="403dp"
-        android:layout_height="51dp"
-        android:layout_alignRight="@+id/textmain"
-        android:background="#ffffff"
-        android:gravity="center"
-        android:text="출발역 검색" />
+        android:id="@+id/search_route"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="경로 검색 " />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e9e9e9" />
+
+
+    <WebView
+        android:id="@+id/line_map_webview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+    </WebView>
 
     <Button
-        android:id="@+id/searchFinal"
-        android:layout_width="403dp"
-        android:layout_height="51dp"
-        android:layout_alignRight="@+id/textmain"
-        android:background="#ffffff"
-        android:gravity="center"
-        android:text="도착역 검색 "
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="51dp" />
+        android:id="@+id/start_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:text="설정" />
 
-    <TextView
-        android:id="@+id/finalStation"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.879" />
+    <Button
+        android:id="@+id/black_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:text="black theme" />
 
-    <TextView
-        android:id="@+id/startStation"
-        android:layout_width="0dp"
-        android:layout_height="500dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.987" />
-
-    <TextView
-        android:id="@+id/pathLocation"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673" />
-
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.478" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/white_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:text="white theme" />
+</LinearLayout>
