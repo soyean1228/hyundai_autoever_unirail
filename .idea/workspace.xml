@@ -280,7 +280,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.18947369" />
@@ -295,12 +294,12 @@
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Debug" order="2" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="4" sideWeight="0.50040483" side_tool="true" visible="true" weight="0.27046263" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="4" sideWeight="0.50040483" side_tool="true" visible="true" weight="0.3291815" />
       <window_info anchor="bottom" id="Version Control" order="5" />
       <window_info anchor="bottom" id="Build" order="6" weight="0.20996441" />
       <window_info anchor="bottom" id="Android Profiler" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32740214" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49959514" visible="true" weight="0.27046263" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49959514" weight="0.27046263" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.3295302" />
