@@ -2,8 +2,8 @@ package com.easysubway;
 
 
 public class RouteStation {
-    private String startStation = "발산";
-    private String finalStation = "동묘앞";
+    private String startStation = "";
+    private String finalStation = "";
     public void setStartStation(String station) {
         startStation = station;
     }

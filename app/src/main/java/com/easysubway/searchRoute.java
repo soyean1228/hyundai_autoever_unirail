@@ -12,14 +12,15 @@ import kr.go.seoul.trafficsubway.Common.BaseActivity;
 
 public class searchRoute extends BaseActivity {
 
-    boolean is_theme_white = false;
+    boolean is_theme_white = true;
 
     private Button final_search;
     private Button start_search;
     private Button search;
     private TextView start_station;
     private TextView final_station;
-    static  final int GET_STRING = 1;
+    static  final int GET_START = 0;
+    static final int GET_DESTINATION=1;
     private TextView textmain;
     public static Context mContext;
     RouteStation r;
@@ -39,12 +40,12 @@ public class searchRoute extends BaseActivity {
         is_theme_white = extras.getBoolean("is_theme_white");
         if(extras.getBoolean("is_theme_white")==false)
         {
-            setContentView(R.layout.search_route_black);
+            setContentView(R.layout.search_route);
             is_theme_white = false;
         }
         else
         {
-            setContentView(R.layout.search_route);
+            setContentView(R.layout.search_route_black);
             is_theme_white = true;
         }
 
@@ -121,8 +122,8 @@ public class searchRoute extends BaseActivity {
                     {
                         Intent intent=new Intent(searchRoute.this,SearchRouteResult.class);
                         intent.putExtra("is_theme_white", is_theme_white);
-                        intent.putExtra("startStation",start_station.getText());
-                        intent.putExtra("finalStation",final_station.getText());
+                        intent.putExtra("startStation",start_station.getText().toString());
+                        intent.putExtra("finalStation",final_station.getText().toString());
                         startActivity(intent);
                     }
                 }
@@ -136,7 +137,7 @@ public class searchRoute extends BaseActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(searchRoute.this, StartSearchActivity.class);
                 intent.putExtra("is_theme_white", is_theme_white);
-                startActivityForResult(intent, GET_STRING);
+                startActivityForResult(intent, GET_START);
             }
         });
 
@@ -146,14 +147,20 @@ public class searchRoute extends BaseActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(searchRoute.this, FinalSearchActivity.class);
                 intent.putExtra("is_theme_white", is_theme_white);
-                startActivityForResult(intent, GET_STRING);
+                startActivityForResult(intent, GET_DESTINATION);
             }
         });
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data){
-        if(requestCode == GET_STRING){
+        if(requestCode == GET_START){
             if(resultCode == RESULT_OK){
-                textmain.setText(data.getStringExtra("INPUT_TEXT"));
+                start_station.setText(data.getExtras().getString("INPUT_TEXT"));
+            }
+        }
+        else
+        {
+            if(resultCode == RESULT_OK){
+                final_station.setText(data.getExtras().getString("INPUT_TEXT"));
             }
         }
     }

@@ -33,9 +33,9 @@ public class ListViewAdapter extends BaseAdapter {
             LayoutInflater inflater
                     = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             if(is_white==false)
-                convertView = inflater.inflate(R.layout.listview_item_black, parent, false);
-            else
                 convertView = inflater.inflate(R.layout.listview_item, parent, false);
+            else
+                convertView = inflater.inflate(R.layout.listview_item_black, parent, false);
         }
 
         TextView textView        = (TextView)convertView.findViewById(R.id.subwaytitle);

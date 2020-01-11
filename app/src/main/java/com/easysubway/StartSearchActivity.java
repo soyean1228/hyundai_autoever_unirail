@@ -28,12 +28,12 @@ public class StartSearchActivity extends Activity {
         adapter = new ListViewAdapter(is_theme_white);
         if(extras.getBoolean("is_theme_white")==false)
         {
-            setContentView(R.layout.activity_search_black);
+            setContentView(R.layout.activity_search);
             is_theme_white = false;
         }
         else
         {
-            setContentView(R.layout.activity_search);
+            setContentView(R.layout.activity_search_black);
             is_theme_white = true;
         }
 
@@ -48,15 +48,23 @@ public class StartSearchActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent intent = new Intent(StartSearchActivity.this, TrafficSubwayInfo.class);
+//                Intent intent = new Intent(StartSearchActivity.this, TrafficSubwayInfo.class);
+                Intent intent = getIntent();
+
                 intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
                 intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
                 intent.putExtra("StationNM", edit.getText().toString());
                 intent.putExtra("is_start","true");
                 intent.putExtra("start",getIntent().getStringExtra("start"));
                 intent.putExtra("final",getIntent().getStringExtra("final"));
-                WebViewInterface.mContext.startActivity(intent);
-                startActivity(intent);
+               // intent.putExtra("INPUT_TEXT","명지대역");
+
+
+                setResult(RESULT_OK,intent);
+
+//                WebViewInterface.mContext.startActivity(intent);
+//                startActivity(intent);
+                finish();
             }
         });
 
@@ -97,7 +105,10 @@ public class StartSearchActivity extends Activity {
                 String itemTitle = item.getTitle();
                 String s = getIntent().getStringExtra("start");
                 String f = getIntent().getStringExtra("final");
-                Intent intent = new Intent(StartSearchActivity.this, searchRoute.class);
+
+//                Intent intent = new Intent(StartSearchActivity.this, searchRoute.class);
+                Intent intent=getIntent();
+
                 intent.putExtra("boolean-keyword", true);
                 intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
                 intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
@@ -106,9 +117,13 @@ public class StartSearchActivity extends Activity {
                 intent.putExtra("is_start",true);
                 intent.putExtra("start",s);
                 intent.putExtra("final",f);
+                intent.putExtra("INPUT_TEXT",items.get(position));
 
-                WebViewInterface.mContext.startActivity(intent);
-                startActivity(intent);
+                setResult(RESULT_OK,intent);
+
+//                WebViewInterface.mContext.startActivity(intent);
+////                startActivity(intent);
+                finish();
             }
         });
 

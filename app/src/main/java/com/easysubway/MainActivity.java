@@ -69,7 +69,7 @@ public class MainActivity extends BaseActivity {
                             @Override
                             public void onClick(View v)
                             {
-                                is_theme_white = false;
+                                is_theme_white = true;
                                 black_theme.setBackgroundColor(Color.BLACK);
                                 white_theme.setBackgroundColor(Color.BLACK);
                                 textmain.setTextColor(Color.WHITE);
@@ -81,6 +81,7 @@ public class MainActivity extends BaseActivity {
                                 white_theme.setTextColor(Color.WHITE);
                                 start_activity.setTextColor(Color.WHITE);
                                 start_activity.setBackgroundColor(Color.BLACK);
+                                mWebViewInterface.changeTheme(is_theme_white);
                             }
                         }
                 );
@@ -91,7 +92,7 @@ public class MainActivity extends BaseActivity {
                             @Override
                             public void onClick(View v)
                             {
-                                is_theme_white = true;
+                                is_theme_white =false;
                                 black_theme.setBackgroundColor(Color.WHITE);
                                 white_theme.setBackgroundColor(Color.WHITE);
                                 textmain.setTextColor(Color.BLACK);
@@ -103,10 +104,10 @@ public class MainActivity extends BaseActivity {
                                 white_theme.setTextColor(Color.BLACK);
                                 start_activity.setTextColor(Color.BLACK);
                                 start_activity.setBackgroundColor(Color.WHITE);
+                                mWebViewInterface.changeTheme(is_theme_white);
                             }
                         }
                 );
-
         mContext = this;
         textmain = findViewById(R.id.textmain);
         Button button = (Button)findViewById(R.id.search_route);
@@ -116,6 +117,7 @@ public class MainActivity extends BaseActivity {
                 Intent intent = new Intent(MainActivity.this, searchRoute.class);
                 intent.putExtra("is_theme_white", is_theme_white);
                 startActivityForResult(intent, GET_STRING);
+
             }
         });
 
@@ -131,11 +133,10 @@ public class MainActivity extends BaseActivity {
                 intent.putExtra("boolean-keyword", true);
 
                 startActivity(intent);
-
-
             }
         });
     }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if(requestCode == GET_STRING){
             if(resultCode == RESULT_OK){
@@ -146,12 +147,20 @@ public class MainActivity extends BaseActivity {
 
     private void initView()
     {
+        if(is_theme_white==false)
+        {
+            System.out.println("false=하양1");
+        }
+        else {
+            System.out.println("true=검정1");
+        }
         btnBackSubway = (ImageView)findViewById(R.id.btn_back_subway);
         btnBackSubway.setOnClickListener(new android.view.View.OnClickListener()
                                          {
 
                                              public void onClick(View view)
                                              {
+                                                 System.out.println(is_theme_white);
                                                  finish();
                                              }
 
@@ -173,6 +182,8 @@ public class MainActivity extends BaseActivity {
         mWebViewInterface = new WebViewInterface(this, lineMapWebview, openAPIKey, subwayLocationAPIKey);
         lineMapWebview.addJavascriptInterface(mWebViewInterface, "Android");
         lineMapWebview.loadUrl("file:///android_asset/mSeoul_Subway.html");
+       // Intent intent = new Intent(MainActivity.this, WebViewInterface.class);
+       // intent.putExtra("is_theme_white", is_theme_white);
     }
 
 

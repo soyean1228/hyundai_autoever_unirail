@@ -29,12 +29,12 @@ public class FinalSearchActivity extends Activity {
         adapter = new ListViewAdapter(is_theme_white);
         if(extras.getBoolean("is_theme_white")==false)
         {
-            setContentView(R.layout.activity_search_black);
+            setContentView(R.layout.activity_search);
             is_theme_white = false;
         }
         else
         {
-            setContentView(R.layout.activity_search);
+            setContentView(R.layout.activity_search_black);
             is_theme_white = true;
         }
 
@@ -70,11 +70,13 @@ public class FinalSearchActivity extends Activity {
                 Bundle extras=getIntent().getExtras();
                 boolean is_theme_white;
 
+
                 is_theme_white = extras.getBoolean("is_theme_white");
                 ListViewItem item = (ListViewItem)parent.getItemAtPosition(position);
                 String itemTitle = item.getTitle();
-                Intent intent = new Intent(FinalSearchActivity.this, searchRoute.class);
-
+//                Intent intent = new Intent(FinalSearchActivity.this, searchRoute.class);
+                Intent intent=getIntent();
+                String start = getIntent().getStringExtra("start");
                 intent.putExtra("boolean-keyword", true);
                 intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
                 intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
@@ -83,8 +85,14 @@ public class FinalSearchActivity extends Activity {
                 intent.putExtra("start",getIntent().getStringExtra("start"));
                 intent.putExtra("final",getIntent().getStringExtra("final"));
 
-                WebViewInterface.mContext.startActivity(intent);
-                startActivity(intent);
+
+
+                intent.putExtra("INPUT_TEXT",items.get(position));
+
+                setResult(RESULT_OK,intent);
+                finish();
+         //       WebViewInterface.mContext.startActivity(intent);
+          //      startActivity(intent);
             }
         });
 

@@ -39,9 +39,44 @@
         android:background="#e9e9e9" />
 
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/time"
         android:layout_width="match_parent"
-        android:layout_height="352dp" />
+        android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/startStation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/startDirection"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/startLineNum"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/middleStation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/middleDirection"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/middleLineNum"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/finalStation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 
 
 </LinearLayout>

@@ -33,12 +33,12 @@ public class SearchActivity extends Activity {
         adapter = new ListViewAdapter(is_theme_white);
         if(extras.getBoolean("is_theme_white")==false)
         {
-            setContentView(R.layout.activity_search_black);
+            setContentView(R.layout.activity_search);
             is_theme_white = false;
         }
         else
         {
-            setContentView(R.layout.activity_search);
+            setContentView(R.layout.activity_search_black);
             is_theme_white = true;
         }
 
