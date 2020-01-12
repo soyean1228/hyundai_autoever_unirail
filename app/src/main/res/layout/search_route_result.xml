@@ -59,6 +59,11 @@
         android:layout_height="50dp" />
 
     <TextView
+        android:id="@+id/startRailLinkListNum"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
         android:id="@+id/middleStation"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
@@ -74,7 +79,17 @@
         android:layout_height="50dp" />
 
     <TextView
+        android:id="@+id/middleRailLinkListNum"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
         android:id="@+id/finalStation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/finalLineNum"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
 

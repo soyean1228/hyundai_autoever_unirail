@@ -28,6 +28,9 @@ public class SearchRouteResult extends BaseActivity {
     public TextView middle_direction;
     public TextView start_linenum; //몇호선인지
     public TextView middle_linenum; //환승하는 것이 몇호선으로 가야하는지
+    public TextView final_linenum; //환승하는 것이 몇호선으로 가야하는지
+    public TextView start_raillinklist_num;
+    public TextView middle_raillinklist_num;
     public String startX = "";
     public String startY = "";
     public String finalX = "";
@@ -35,9 +38,12 @@ public class SearchRouteResult extends BaseActivity {
     public String startCode[] = {"","",""}; //최종 경로의 역코드는 startCode[0]
     public String finalCode[] = {"","",""};
     public String startLineNum[] = {"","",""};
+    public String middleLineNum[] = {"","",""};
     public String finalLineNum[] = {"","",""};
     public String startID[] = {"","",""};
     public String startDirection = "";
+    public String startRailLinkListNum = "";
+    public String middleRailLinkListNum[] = {"","",""};
     public String time = "";
     public String middleStation[] = {"","","","","",""};
     public int middleNum = 0;
@@ -65,6 +71,9 @@ public class SearchRouteResult extends BaseActivity {
         textTime = (TextView)findViewById(R.id.time);
         start_linenum = (TextView)findViewById(R.id.startLineNum);
         middle_linenum = (TextView)findViewById(R.id.middleLineNum);
+        final_linenum = (TextView)findViewById(R.id.finalLineNum);
+        start_raillinklist_num = (TextView)findViewById(R.id.startRailLinkListNum);
+        middle_raillinklist_num = (TextView)findViewById(R.id.middleRailLinkListNum);
 
         if(this.getIntent() != null && this.getIntent().getStringExtra("OpenAPIKey") != null) {
             this.openAPIKey = this.getIntent().getStringExtra("OpenAPIKey");
@@ -124,20 +133,28 @@ public class SearchRouteResult extends BaseActivity {
             e.printStackTrace();
         }
 
-        findId(startStation);
-        findDirection(startStation);
+        //findId(startStation);
+        //findDirection(startStation);
 
         System.out.println("final!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         System.out.println(time);
         System.out.println(startStation);
-        System.out.println(startLineNum);
+        System.out.println(startLineNum[0]);
+        System.out.println(startRailLinkListNum);
         System.out.println(middleStation[0]);
+        System.out.println(middleLineNum[0]);
+        System.out.println(middleRailLinkListNum[0]);
         System.out.println(finalStation);
+        //System.out.println(finalLineNum[0]);
         textTime.setText(time);
         start_station.setText(startStation);
         middle_station.setText(middleStation[0]);
         final_station.setText(finalStation);
         start_linenum.setText(startLineNum[0]);
+        middle_linenum.setText(middleLineNum[0]);
+        start_raillinklist_num.setText(startRailLinkListNum);
+        middle_raillinklist_num.setText(middleRailLinkListNum[0]);
+        //final_linenum.setText(finalLineNum[0]);
     }
 
     String findDirection(String stationNM){
@@ -147,11 +164,6 @@ public class SearchRouteResult extends BaseActivity {
             str = findApi.execute(startStation).get();
             System.out.println("-----------------direction--------------------");
             System.out.println(str);
-//            String[] array = str.split("/");
-//            String startSubID = array[0];
-//            String finalSubID = array[1];
-//            System.out.println(startSubID);
-//            System.out.println(finalSubID);
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -191,6 +203,30 @@ public class SearchRouteResult extends BaseActivity {
             e.printStackTrace();
         }
         return id;
+    }
+
+    String findSubwayId(String subwayNM){
+        //몇호선인지를 넣으면 1001이런 subwayid를 알려주는 함수
+        if((subwayNM.equals("1호선") == true)){
+            return "1001";
+        }else if((subwayNM.equals("2호선") == true)){
+            return "1002";
+        }else if((subwayNM.equals("3호선") == true)){
+            return "1003";
+        }else if((subwayNM.equals("4호선") == true)){
+            return "1004";
+        }else if((subwayNM.equals("5호선") == true)){
+            return "1005";
+        }else if((subwayNM.equals("6호선") == true)){
+            return "1006";
+        }else if((subwayNM.equals("7호선") == true)){
+            return "1007";
+        }else if((subwayNM.equals("8호선") == true)){
+            return "1008";
+        }else if((subwayNM.equals("9호선") == true)){
+            return "1009";
+        }
+        return "";
     }
 
 
@@ -315,7 +351,8 @@ public class SearchRouteResult extends BaseActivity {
                             }
                             else if (tag.equals("LINE_NUM")) {
                                 xpp.next();
-                                startLineNum[i] = xpp.getText();
+                                String s = xpp.getText().substring(1);
+                                startLineNum[i] = s;
                                 //buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
                                 break;
                             }
@@ -421,20 +458,31 @@ public class SearchRouteResult extends BaseActivity {
                                 startCode[0] = str;
                                 buffer.append(str);//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
                                 buffer.append("\n"); //줄바꿈 문자 추가
-                                start = 1;
-                                if(startCode[0] != str){
-                                    for(int j=0; j<3; j++){
-                                        if(startCode[j] == str){
-                                            startLineNum[0] = startLineNum[j];
-                                        }
-                                    }
-                                }
+//                                if(startCode[0] != str){
+//                                    for(int j=0; j<3; j++){
+//                                        if(startCode[j] == str){
+//                                            startLineNum[0] = startLineNum[j];
+//                                        }
+//                                    }
+//                                }
                                 break;
                             }
                             else if (start == 0 && tag.equals("fname")) {
                                 buffer.append("출발역 : ");
                                 xpp.next();
-                                startStation = xpp.getText();
+                                String s = xpp.next() + "역";
+                                startStation = s;
+                                buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                                buffer.append("\n"); //줄바꿈 문자 추가
+                                break;
+                            } else if (start == 0 && tag.equals("railLinkId")) {
+                                xpp.next();
+                                startRailLinkListNum = xpp.getText();
+                                break;
+                            } else if (start == 0 && tag.equals("routeNm")) {
+                                buffer.append("몇호선 : ");
+                                xpp.next();
+                                startLineNum[0] = xpp.getText();
                                 buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
                                 buffer.append("\n"); //줄바꿈 문자 추가
                                 start = 1;
@@ -447,7 +495,18 @@ public class SearchRouteResult extends BaseActivity {
                                 buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
                                 buffer.append("\n"); //줄바꿈 문자 추가
                                 break;
-                            } else if (tag.equals("tname")) {
+                            }else if (start == 1 && tag.equals("railLinkId")) {
+                                xpp.next();
+                                middleRailLinkListNum[0] = xpp.getText();
+                                break;
+                            } else if (start == 1 && tag.equals("routeNm")) {
+                                buffer.append("몇호선으로 갈아탈까 : ");
+                                xpp.next();
+                                middleLineNum[0] = xpp.getText();
+                                buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                                buffer.append("\n"); //줄바꿈 문자 추가
+                                break;
+                            } else if (start == 1 && tag.equals("tname")) {
                                 buffer.append("도착역 : ");
                                 xpp.next();
                                 finalStation = xpp.getText();
@@ -492,7 +551,7 @@ public class SearchRouteResult extends BaseActivity {
         String executeClient(String[] str) {
             StringBuffer buffer = new StringBuffer();
             try {
-                StringBuilder urlBuilder = new StringBuilder("http://swopenAPI.seoul.go.kr/api/subway/70575677706d696333327152507752/xml/fastTransfer/0/5/");
+                StringBuilder urlBuilder = new StringBuilder("http://swopenapi.seoul.go.kr/api/subway/70575677706d696333327152507752/xml/fastTransfer/0/5/");
                 urlBuilder.append(URLEncoder.encode(str[0], "UTF-8")); //출발지
                 url = new URL(urlBuilder.toString());
                 InputStream is= url.openStream(); //url위치로 입력스트림 연결
@@ -503,6 +562,8 @@ public class SearchRouteResult extends BaseActivity {
                 xpp.next();
                 String code = str[0];
                 int eventType= xpp.getEventType();
+                String ssubwayId = findSubwayId(startLineNum[0]);
+                String esubwayId = findSubwayId(middleLineNum[0]);
                 while (eventType != XmlPullParser.END_DOCUMENT) {
                     switch( eventType ){
                         case XmlPullParser.START_TAG:
