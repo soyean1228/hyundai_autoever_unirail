@@ -18,7 +18,6 @@
             android:id="@+id/textmain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:gravity="center"
             android:text="경로 검색"
             android:textColor="#000000"
@@ -35,41 +34,56 @@
     <Button
         android:id="@+id/start_search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50sp"
         android:background="#ffffff"
         android:gravity="center"
-        android:text="출발지 검색" />
+        android:text="1. 출발지 검색"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="28sp" />
 
     <TextView
         android:id="@+id/start_station"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="40sp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/final_search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50sp"
         android:background="#ffffff"
         android:gravity="center"
-        android:text="도착지 검색"
+        android:text="2. 도착지 검색"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="28sp"
         tools:layout_editor_absoluteX="-16dp"
         tools:layout_editor_absoluteY="48dp" />
 
     <TextView
         android:id="@+id/final_station"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="40sp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="24sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#e9e9e9" />
+        android:background="#e9e9e9"
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="탐색 " />
+        android:layout_height="60sp"
+        android:gravity="center"
+        android:text="탐색 "
+        android:textSize="28sp" />
 
 
 </LinearLayout>

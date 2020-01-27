@@ -84,15 +84,11 @@ public class FinalSearchActivity extends Activity {
                 intent.putExtra("is_theme_white", is_theme_white);
                 intent.putExtra("start",getIntent().getStringExtra("start"));
                 intent.putExtra("final",getIntent().getStringExtra("final"));
-
-
-
                 intent.putExtra("INPUT_TEXT",items.get(position));
-
                 setResult(RESULT_OK,intent);
                 finish();
          //       WebViewInterface.mContext.startActivity(intent);
-          //      startActivity(intent);
+         //      startActivity(intent);
             }
         });
 
