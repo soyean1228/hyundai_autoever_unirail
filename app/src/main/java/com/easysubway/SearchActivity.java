@@ -123,7 +123,6 @@ public class SearchActivity extends Activity {
             int drawableId = res.getIdentifier(menuTitle.toLowerCase(), "drawable"
                     , getBaseContext().getPackageName());
 
-
             adapter.addItem(menuTitle);
         }
 

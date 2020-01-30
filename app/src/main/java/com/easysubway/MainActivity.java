@@ -18,13 +18,13 @@ import kr.go.seoul.trafficsubway.Common.BaseActivity;
 public class MainActivity extends BaseActivity {
 
     boolean is_theme_white = false;
-
+    private DBmanager db;
     private Button black_theme;
     private Button white_theme;
-    //private Button search;
     private Button search_route;
     private Button start_activity;
     private RelativeLayout Rlayout;
+    private Button recent_search;
     static  final int GET_STRING = 1;
 
     private TextView textmain;
@@ -40,14 +40,29 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        db = new DBmanager(this.getApplicationContext(),"routestation.db",null,1);
         setContentView(R.layout.activity_main);
         Rlayout = findViewById(R.id.Rlayout);
         black_theme = findViewById(R.id.black_theme);
         white_theme = findViewById(R.id.white_theme);
-        //search_route = findViewById(R.id.start_search1);
         search_route = findViewById(R.id.search_route);
         textmain = findViewById(R.id.textmain);
         start_activity=findViewById(R.id.start_activity);
+        ///////////////
+        recent_search = findViewById(R.id.recent_search);
+        recent_search.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent=new Intent(MainActivity.this,RecentRoute.class);
+                        intent.putExtra("is_theme_white", is_theme_white);
+                        startActivity(intent);
+                    }
+                }
+        );
+        /////////////////
 
         search_route.setOnClickListener(
                 new View.OnClickListener()

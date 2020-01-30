@@ -1,5 +1,8 @@
 package com.easysubway;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +23,7 @@ import java.util.Iterator;
 import kr.go.seoul.trafficsubway.Common.BaseActivity;
 
 public class SearchRouteResult extends BaseActivity {
+    public DBmanager dbmanager;
     public String openAPIKey = "70575677706d696333327152507752";
     public String subwayLocationAPIKey = "70575677706d696333327152507752";
     public String startStation = "";
@@ -51,7 +55,6 @@ public class SearchRouteResult extends BaseActivity {
     public String time = "";
     public String middleStation[] = {"","","","","",""};
     public int middleNum = 0;
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,9 +140,6 @@ public class SearchRouteResult extends BaseActivity {
             e.printStackTrace();
         }
 
-        //findId(startStation);
-        //findDirection(startStation);
-
         System.out.println("final!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         System.out.println(time);
         System.out.println(startStation);
@@ -163,6 +163,28 @@ public class SearchRouteResult extends BaseActivity {
         //middle_linenum.setText(middleLineNum[0]);
         startRailLinkListNum = startRailLinkListNum + "개역 이동";
         start_raillinklist_num.setText(startRailLinkListNum);
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+        dbmanager = DBmanager.getInstance(getApplicationContext());
+        SQLiteDatabase db = dbmanager.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("STARTSTATION",startStation);
+        values.put("TIME",time);
+        values.put("FINALSTATION",finalStation);
+        values.put("STARTLINENUM",startLineNum[0]);
+        values.put("STARTRAILLINKLISTNUM",startRailLinkListNum);
+        values.put("MIDDLESTATION0",startLineNum[0]);
+        values.put("MIDDLESTATION1",startLineNum[0]);
+        values.put("MIDDLESTATION2",startLineNum[0]);
+        values.put("MIDDLELINENUM0",startLineNum[0]);
+        values.put("MIDDLELINENUM1",startLineNum[0]);
+        values.put("MIDDLELINENUM2",startLineNum[0]);
+        values.put("MIDDLERAILLINKLISTNUM0",startLineNum[0]);
+        values.put("MIDDLERAILLINKLISTNUM1",startLineNum[0]);
+        values.put("MIDDLERAILLINKLISTNUM2",startLineNum[0]);
+        db.insert("ROUTESTATION",null,values);
+        db.close();
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
         middleStationAdapter middleAdapter = new middleStationAdapter(is_theme_white);
         ListView list = (ListView)findViewById(R.id.middleList);

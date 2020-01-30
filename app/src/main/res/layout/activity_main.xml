@@ -38,6 +38,12 @@
         android:layout_height="wrap_content"
         android:text="경로 검색 " />
 
+    <Button
+        android:id="@+id/recent_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="최근 경로" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

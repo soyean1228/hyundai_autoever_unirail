@@ -55,8 +55,9 @@ public class FinalSearchActivity extends Activity {
                 intent.putExtra("StationNM", edit.getText().toString());
                 intent.putExtra("start",getIntent().getStringExtra("start"));
                 intent.putExtra("final",getIntent().getStringExtra("final"));
-                WebViewInterface.mContext.startActivity(intent);
-                startActivity(intent);
+                intent.putExtra("INPUT_TEXT",edit.getText().toString());
+                setResult(RESULT_OK,intent);
+                finish();
             }
         });
 
@@ -87,8 +88,6 @@ public class FinalSearchActivity extends Activity {
                 intent.putExtra("INPUT_TEXT",items.get(position));
                 setResult(RESULT_OK,intent);
                 finish();
-         //       WebViewInterface.mContext.startActivity(intent);
-         //      startActivity(intent);
             }
         });
 
