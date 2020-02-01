@@ -137,6 +137,16 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="24sp" />
 
+    <Button
+        android:id="@+id/navigate"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="24sp"
+        android:text="안내 시작" />
+
 
 </LinearLayout>
 </ScrollView>

@@ -24,6 +24,7 @@ public class MainActivity extends BaseActivity {
     private Button search_route;
     private Button start_activity;
     private RelativeLayout Rlayout;
+    private Button station_info;
     private Button recent_search;
     static  final int GET_STRING = 1;
 
@@ -48,6 +49,7 @@ public class MainActivity extends BaseActivity {
         search_route = findViewById(R.id.search_route);
         textmain = findViewById(R.id.textmain);
         start_activity=findViewById(R.id.start_activity);
+        station_info = findViewById(R.id.station_info);
         ///////////////
         recent_search = findViewById(R.id.recent_search);
         recent_search.setOnClickListener(
@@ -75,6 +77,19 @@ public class MainActivity extends BaseActivity {
                         startActivity(intent);
                     }
             }
+        );
+
+        station_info.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent=new Intent(MainActivity.this, SearchMap.class);
+                        intent.putExtra("is_theme_white", is_theme_white);
+                        startActivity(intent);
+                    }
+                }
         );
 
         black_theme.setOnClickListener

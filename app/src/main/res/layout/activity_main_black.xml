@@ -42,6 +42,53 @@
             android:layout_alignRight="@+id/textmain"/>
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/search_route"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:text="1.경로 검색 "
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/recent_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:textColor="#FFFFFF"
+        android:text="2.최근 경로" />
+
+    <Button
+        android:id="@+id/station_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:textColor="#FFFFFF"
+        android:text="3.역정보" />
+    <Button
+        android:id="@+id/start_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:textColor="#FFFFFF"
+        android:text="4.설정" />
+
+    <Button
+        android:id="@+id/black_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:textColor="#FFFFFF"
+        android:text="white theme" />
+
+    <Button
+        android:id="@+id/white_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:textColor="#FFFFFF"
+        android:text="black theme" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -53,29 +100,5 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
-
-    <Button
-        android:id="@+id/start_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#000000"
-        android:textColor="#FFFFFF"
-        android:text="설정"/>
-
-    <Button
-        android:id="@+id/black_theme"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#000000"
-        android:textColor="#FFFFFF"
-        android:text="black theme" />
-
-    <Button
-        android:id="@+id/white_theme"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#000000"
-        android:textColor="#FFFFFF"
-        android:text="white theme" />
 
 </LinearLayout>

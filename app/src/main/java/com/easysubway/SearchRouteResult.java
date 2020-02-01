@@ -1,14 +1,22 @@
 package com.easysubway;
 
+import android.content.ComponentName;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.easysubway.UNIRAIL_service.UNIRAIL_service;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -17,7 +25,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.Iterator;
+import java.util.ArrayList;
 
 
 import kr.go.seoul.trafficsubway.Common.BaseActivity;
@@ -55,6 +63,25 @@ public class SearchRouteResult extends BaseActivity {
     public String time = "";
     public String middleStation[] = {"","","","","",""};
     public int middleNum = 0;
+    private Button navigate;
+
+    private final ArrayList<UNIRAIL_service.argument_for_naviation> arguments=new ArrayList<UNIRAIL_service.argument_for_naviation>();  //+beta 1.2 build 0127
+    private UNIRAIL_service.argument_for_naviation argument;                                        //+beta 1.2 build 0127
+
+    private UNIRAIL_service service;                                                                //+beta 1.2 build 0127
+    private final ServiceConnection connection = new ServiceConnection()                            //+beta 1.2 build 0127
+    {                                                                                               //+beta 1.2 build 0127
+        @Override                                                                                   //+beta 1.2 build 0127
+        public void onServiceConnected(ComponentName name, IBinder binder)                          //+beta 1.2 build 0127
+        {                                                                                           //+beta 1.2 build 0127
+            service = ((UNIRAIL_service.binder) binder).get_service();                              //+beta 1.2 build 0127
+        }                                                                                           //+beta 1.2 build 0127
+
+        @Override                                                                                   //+beta 1.2 build 0127
+        public void onServiceDisconnected(ComponentName name)                                       //+beta 1.2 build 0127
+        {                                                                                           //+beta 1.2 build 0127
+        }                                                                                           //+beta 1.2 build 0127
+    };                                                                                              //+beta 1.2 build 0127
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +108,7 @@ public class SearchRouteResult extends BaseActivity {
         //final_linenum = (TextView)findViewById(R.id.finalLineNum);
         start_raillinklist_num = (TextView)findViewById(R.id.startRailLinkListNum);
         //middle_raillinklist_num = (TextView)findViewById(R.id.middleRailLinkListNum);
+        navigate=findViewById(R.id.navigate);
 
         if(this.getIntent() != null && this.getIntent().getStringExtra("OpenAPIKey") != null) {
             this.openAPIKey = this.getIntent().getStringExtra("OpenAPIKey");
@@ -174,14 +202,14 @@ public class SearchRouteResult extends BaseActivity {
         values.put("STARTLINENUM",startLineNum[0]);
         values.put("STARTRAILLINKLISTNUM",startRailLinkListNum);
         values.put("MIDDLESTATION0",startLineNum[0]);
-        values.put("MIDDLESTATION1",startLineNum[0]);
-        values.put("MIDDLESTATION2",startLineNum[0]);
+        values.put("MIDDLESTATION1",startLineNum[1]);
+        values.put("MIDDLESTATION2",startLineNum[2]);
         values.put("MIDDLELINENUM0",startLineNum[0]);
-        values.put("MIDDLELINENUM1",startLineNum[0]);
-        values.put("MIDDLELINENUM2",startLineNum[0]);
+        values.put("MIDDLELINENUM1",startLineNum[1]);
+        values.put("MIDDLELINENUM2",startLineNum[2]);
         values.put("MIDDLERAILLINKLISTNUM0",startLineNum[0]);
-        values.put("MIDDLERAILLINKLISTNUM1",startLineNum[0]);
-        values.put("MIDDLERAILLINKLISTNUM2",startLineNum[0]);
+        values.put("MIDDLERAILLINKLISTNUM1",startLineNum[1]);
+        values.put("MIDDLERAILLINKLISTNUM2",startLineNum[2]);
         db.insert("ROUTESTATION",null,values);
         db.close();
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -209,6 +237,21 @@ public class SearchRouteResult extends BaseActivity {
         params.height = totalHeight + (list.getDividerHeight() * (middleAdapter.getCount() - 1));
         list.setLayoutParams(params);
         /////////////////////////////////////
+
+        bindService(new Intent(this, UNIRAIL_service.class), connection, Context.BIND_AUTO_CREATE);
+
+        navigate.setOnClickListener
+                (
+                        new View.OnClickListener()                                                      //+beta 1.2 build 0127
+                        {                                                                               //+beta 1.2 build 0127
+                            @Override                                                                   //+beta 1.2 build 0127
+                            public void onClick(View view)                                              //+beta 1.2 build 0127
+                            {
+                                service.navigate((UNIRAIL_service.argument_for_naviation[])arguments.toArray(new UNIRAIL_service.argument_for_naviation[arguments.size()]));
+                            }
+                        }
+                );
+
     }
 
     String findDirection(String stationNM){
@@ -512,6 +555,8 @@ public class SearchRouteResult extends BaseActivity {
                                 startCode[0] = str;
                                 buffer.append(str);//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
                                 buffer.append("\n"); //줄바꿈 문자 추가
+                                argument=new UNIRAIL_service.argument_for_naviation();              //+beta 1.2 build 0127
+                                argument.set_fid(str);
                                 break;
                             }
                             else if (start == 0 && tag.equals("fname")) {
@@ -528,6 +573,7 @@ public class SearchRouteResult extends BaseActivity {
                             } else if (start == 0 && tag.equals("railLinkId")) {
                                 xpp.next();
                                 startRailLinkListNum = xpp.getText();
+                                argument.set_from_departure_station_to_arrival_station(Integer.parseInt(xpp.getText()));
                                 break;
                             } else if (start == 0 && tag.equals("routeNm")) {
                                 buffer.append("몇호선 : ");
@@ -536,6 +582,7 @@ public class SearchRouteResult extends BaseActivity {
                                 buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
                                 buffer.append("\n"); //줄바꿈 문자 추가
                                 start = 1;
+                                argument.set_subwayNm(xpp.getText());
                                 break;
                             } else if (start == 1 && tag.equals("fname")) {
                                 buffer.append("환승역 : ");
@@ -547,6 +594,7 @@ public class SearchRouteResult extends BaseActivity {
                             }else if (start == 1 && tag.equals("railLinkId")) {
                                 xpp.next();
                                 middleRailLinkListNum[middleNum] = xpp.getText();
+                                argument.set_from_departure_station_to_arrival_station(Integer.parseInt(xpp.getText()));
                                 break;
                             } else if (start == 1 && tag.equals("routeNm")) {
                                 buffer.append("몇호선으로 갈아탈까 : ");
@@ -555,6 +603,7 @@ public class SearchRouteResult extends BaseActivity {
                                 middleNum++;
                                 buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
                                 buffer.append("\n"); //줄바꿈 문자 추가
+                                argument.set_subwayNm(xpp.getText());
                                 break;
                             } else if (start == 1 && tag.equals("tname")) {
                                 buffer.append("도착역 : ");
@@ -570,6 +619,19 @@ public class SearchRouteResult extends BaseActivity {
                                 buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
                                 buffer.append("\n"); //줄바꿈 문자 추가
                                 find = 1;
+                                break;
+                            }else if (tag.equals("tid")) {                                         //+beta 1.2 build 0127
+                                xpp.next();                                                         //+beta 1.2 build 0127
+                                String tid = xpp.getText();                                         //+beta 1.2 build 0127
+                                tid = tid.substring(0, tid.length()-1);                             //+beta 1.2 build 0127
+                                argument.set_tid(tid);                                              //+beta 1.2 build 0127
+                                arguments.add(argument);                                            //+beta 1.2 build 0127
+                                Log.d("fid",argument.get_fid());                               //+beta 1.2 build 0127
+                                Log.d("subwayNm",argument.get_subwayNm());                     //+beta 1.2 build 0127
+                                Log.d("to_arrival_station",Integer.toString(argument.get_from_departure_station_to_arrival_station()));//+beta 1.2 build 0127
+                                Log.d("tid",argument.get_tid());                               //+beta 1.2 build 0127
+                                argument=new UNIRAIL_service.argument_for_naviation();              //+beta 1.2 build 0127
+                                argument.set_fid(tid);                                              //+beta 1.2 build 0127
                                 break;
                             }
                             break;

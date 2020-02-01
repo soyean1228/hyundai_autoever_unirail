@@ -29,4 +29,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':trafficsubway-release')
     compile 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.github.chrisbanes:PhotoView:2.1.3'
 }
