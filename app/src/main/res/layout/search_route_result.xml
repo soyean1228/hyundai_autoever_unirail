@@ -11,7 +11,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="com.easysubway.MainActivity">
+    tools:context="com.UNIRAIL.MainActivity">
 
     <RelativeLayout
         android:id="@+id/Rlayout"
