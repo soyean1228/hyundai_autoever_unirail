@@ -1,4 +1,4 @@
-package com.UNIRAIL;
+package com.unirail;
 
 public class ListViewItem {
     private String title;

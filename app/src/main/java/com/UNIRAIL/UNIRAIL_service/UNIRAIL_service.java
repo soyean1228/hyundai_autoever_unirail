@@ -1,4 +1,4 @@
-package com.UNIRAIL.UNIRAIL_service;
+package com.unirail.UNIRAIL_service;
 
 import android.app.NotificationManager;
 import android.app.Service;
@@ -9,7 +9,7 @@ import android.os.Build;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 
-import com.UNIRAIL.subway;
+import com.unirail.subway;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -25,8 +25,8 @@ public final class UNIRAIL_service extends Service
     private NotificationCompat.Builder builder_for_important_notifications;
     private NotificationCompat.Builder builder_for_unimportant_notifications;
 
-    private com.UNIRAIL.UNIRAIL_service.indicator indicator;
-    private com.UNIRAIL.UNIRAIL_service.blocker blocker;
+    private com.unirail.UNIRAIL_service.indicator indicator;
+    private com.unirail.UNIRAIL_service.blocker blocker;
 
     public UNIRAIL_service()
     {
@@ -95,7 +95,7 @@ public final class UNIRAIL_service extends Service
                             private String btrainNo;
 
                             private stationInfo arrival_station_stationInfo;
-                            private com.UNIRAIL.UNIRAIL_service.realtimeStationPosition realtimeStationPosition;
+                            private com.unirail.UNIRAIL_service.realtimeStationPosition realtimeStationPosition;
                             private boolean does_stop_at_arrival_station;
 
                             private String previus_trainSttus;
@@ -158,7 +158,7 @@ public final class UNIRAIL_service extends Service
                                                 final String arrival_station_directAt=arrival_station_stationInfo.get_directAt();
                                                 does_stop_at_arrival_station=
                                                         departure_station_subline.get_does_stop_at_destination_station(arrival_station_statnNm,departure_station_realtimeStationArrival.get_bstatnNm())&&
-                                                                (train_directAt.equals(com.UNIRAIL.UNIRAIL_service.realtimeStationPosition.is_not_express_train)||updnLine.equals("상행")&&arrival_station_directAt.equals(stationInfo.express_train_stops_at_up_line)||updnLine.equals("하행")&&arrival_station_directAt.equals(stationInfo.express_train_stops_at_down_line)||arrival_station_directAt.equals(stationInfo.express_train_stops_at_all_line));
+                                                                (train_directAt.equals(com.unirail.UNIRAIL_service.realtimeStationPosition.is_not_express_train)||updnLine.equals("상행")&&arrival_station_directAt.equals(stationInfo.express_train_stops_at_up_line)||updnLine.equals("하행")&&arrival_station_directAt.equals(stationInfo.express_train_stops_at_down_line)||arrival_station_directAt.equals(stationInfo.express_train_stops_at_all_line));
                                             }
                                         }
                                         else

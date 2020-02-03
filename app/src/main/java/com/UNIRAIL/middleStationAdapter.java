@@ -1,4 +1,4 @@
-package com.UNIRAIL;
+package com.unirail;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -24,6 +24,7 @@ public class middleStationAdapter extends BaseAdapter {
     public int getCount() {
         return listViewItemList.size();
     }
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {

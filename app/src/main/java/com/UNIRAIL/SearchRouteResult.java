@@ -1,4 +1,4 @@
-package com.UNIRAIL;
+package com.unirail;
 
 import android.content.ComponentName;
 import android.content.ContentValues;
@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.UNIRAIL.UNIRAIL_service.UNIRAIL_service;
+import com.unirail.UNIRAIL_service.UNIRAIL_service;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -201,15 +201,15 @@ public class SearchRouteResult extends BaseActivity {
         values.put("FINALSTATION",finalStation);
         values.put("STARTLINENUM",startLineNum[0]);
         values.put("STARTRAILLINKLISTNUM",startRailLinkListNum);
-        values.put("MIDDLESTATION0",startLineNum[0]);
-        values.put("MIDDLESTATION1",startLineNum[1]);
-        values.put("MIDDLESTATION2",startLineNum[2]);
-        values.put("MIDDLELINENUM0",startLineNum[0]);
-        values.put("MIDDLELINENUM1",startLineNum[1]);
-        values.put("MIDDLELINENUM2",startLineNum[2]);
-        values.put("MIDDLERAILLINKLISTNUM0",startLineNum[0]);
-        values.put("MIDDLERAILLINKLISTNUM1",startLineNum[1]);
-        values.put("MIDDLERAILLINKLISTNUM2",startLineNum[2]);
+        values.put("MIDDLESTATION0",middleStation[0]);
+        values.put("MIDDLESTATION1",middleStation[1]);
+        values.put("MIDDLESTATION2",middleStation[2]);
+        values.put("MIDDLELINENUM0",middleLineNum[0]);
+        values.put("MIDDLELINENUM1",middleLineNum[1]);
+        values.put("MIDDLELINENUM2",middleLineNum[2]);
+        values.put("MIDDLERAILLINKLISTNUM0",middleRailLinkListNum[0]);
+        values.put("MIDDLERAILLINKLISTNUM1",middleRailLinkListNum[1]);
+        values.put("MIDDLERAILLINKLISTNUM2",middleRailLinkListNum[2]);
         db.insert("ROUTESTATION",null,values);
         db.close();
         ///////////////////////////////////////////////////////////////////////////////////////////////////////

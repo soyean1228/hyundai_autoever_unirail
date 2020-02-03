@@ -1,4 +1,4 @@
-package com.UNIRAIL;
+package com.unirail;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -43,12 +43,12 @@ public class RecentRoute extends BaseActivity {
         is_theme_white = extras.getBoolean("is_theme_white");
         if(extras.getBoolean("is_theme_white")==false)
         {
-            setContentView(R.layout.search_route_result);
+            setContentView(R.layout.recent_route_result);
             is_theme_white = false;
         }
         else
         {
-            setContentView(R.layout.search_route_result_black);
+            setContentView(R.layout.recent_route_result_black);
             is_theme_white = true;
         }
 
@@ -103,6 +103,10 @@ public class RecentRoute extends BaseActivity {
         System.out.println(middleStation[1]);
         System.out.println(middleLineNum[1]);
         System.out.println(middleRailLinkListNum[1]);
+        System.out.println("세번째");
+        System.out.println(middleStation[2]);
+        System.out.println(middleLineNum[2]);
+        System.out.println(middleRailLinkListNum[2]);
         System.out.println(finalStation);
 
         textTime.setText(time);
@@ -115,8 +119,8 @@ public class RecentRoute extends BaseActivity {
         middleStationAdapter middleAdapter = new middleStationAdapter(is_theme_white);
         ListView list = (ListView)findViewById(R.id.middleList);
         list.setAdapter(middleAdapter);
-        for(int i=0;i<3;i++) {
-            if(middleStation[i] != "") {
+        for(int i=0;i<1;i++) {
+            if(middleStation[i] != "" || middleStation[i]!= null ) {
                 middleAdapter.addItem(middleStation[i]);
                 middleAdapter.addItem(middleLineNum[i]);
                 middleRailLinkListNum[i] = middleRailLinkListNum[i] + "개역 이동";

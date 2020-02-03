@@ -1,4 +1,4 @@
-package com.UNIRAIL.UNIRAIL_service;
+package com.unirail.UNIRAIL_service;
 
 import android.content.Context;
 import android.hardware.Sensor;
@@ -8,7 +8,7 @@ import android.hardware.SensorManager;
 import android.media.AudioAttributes;
 import android.media.SoundPool;
 
-import com.UNIRAIL.R;
+import com.unirail.R;
 
 import static java.lang.StrictMath.abs;
 

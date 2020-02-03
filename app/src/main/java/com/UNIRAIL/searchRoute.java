@@ -1,4 +1,4 @@
-package com.UNIRAIL;
+package com.unirail;
 
 import android.content.Context;
 import android.content.Intent;

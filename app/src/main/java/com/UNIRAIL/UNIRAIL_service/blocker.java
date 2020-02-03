@@ -1,4 +1,4 @@
-package com.UNIRAIL.UNIRAIL_service;
+package com.unirail.UNIRAIL_service;
 
 import android.content.Context;
 import android.hardware.Sensor;

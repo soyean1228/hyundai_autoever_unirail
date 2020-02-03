@@ -1,4 +1,4 @@
-package com.UNIRAIL;
+package com.unirail;
 
 import android.content.res.Resources;
 import android.graphics.Color;

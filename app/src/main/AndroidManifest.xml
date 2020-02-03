@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.UNIRAIL">
+    package="com.unirail">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,30 +12,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
-            android:name="com.UNIRAIL.UNIRAIL_service.UNIRAIL_service"
+            android:name="com.unirail.UNIRAIL_service.UNIRAIL_service"
             android:enabled="true"
             android:exported="true"></service>
 
         <activity
-            android:name="com.UNIRAIL.SplashActivity"
+            android:name=".SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.UNIRAIL.MainActivity"></activity>
-        <activity android:name="com.UNIRAIL.TrafficSubwayInfo" />
-        <activity android:name="com.UNIRAIL.StartSearchActivity" />
-        <activity android:name="com.UNIRAIL.FinalSearchActivity" />
-        <activity android:name="com.UNIRAIL.SettingActivity" />
-        <activity android:name="com.UNIRAIL.searchRoute" />
-        <activity android:name="com.UNIRAIL.SearchRouteResult" />
-        <activity android:name="com.UNIRAIL.RecentRoute" />
-        <activity android:name="com.UNIRAIL.SearchMap" />
-        <activity android:name="com.UNIRAIL.StationMapActivity" />
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".TrafficSubwayInfo" />
+        <activity android:name=".StartSearchActivity" />
+        <activity android:name=".FinalSearchActivity" />
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".searchRoute" />
+        <activity android:name=".SearchRouteResult" />
+        <activity android:name=".RecentRoute" />
+        <activity android:name=".SearchMap" />
+        <activity android:name=".StationMapActivity" />
     </application>
 
 </manifest>

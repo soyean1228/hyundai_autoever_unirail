@@ -1,4 +1,4 @@
-package com.UNIRAIL;
+package com.unirail;
 
 import android.content.Context;
 import android.content.Intent;
@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity {
         white_theme = findViewById(R.id.white_theme);
         search_route = findViewById(R.id.search_route);
         textmain = findViewById(R.id.textmain);
-        start_activity=findViewById(R.id.start_activity);
+        //start_activity=findViewById(R.id.start_activity);
         station_info = findViewById(R.id.station_info);
         ///////////////
         recent_search = findViewById(R.id.recent_search);
@@ -110,6 +110,10 @@ public class MainActivity extends BaseActivity {
                                 white_theme.setTextColor(Color.WHITE);
                                 start_activity.setTextColor(Color.WHITE);
                                 start_activity.setBackgroundColor(Color.BLACK);
+                                station_info.setBackgroundColor(Color.BLACK);
+                                station_info.setTextColor(Color.WHITE);
+                                recent_search.setBackgroundColor(Color.BLACK);
+                                recent_search.setTextColor(Color.WHITE);
                                 mWebViewInterface.changeTheme(is_theme_white);
                             }
                         }
@@ -133,6 +137,10 @@ public class MainActivity extends BaseActivity {
                                 white_theme.setTextColor(Color.BLACK);
                                 start_activity.setTextColor(Color.BLACK);
                                 start_activity.setBackgroundColor(Color.WHITE);
+                                station_info.setBackgroundColor(Color.WHITE);
+                                station_info.setTextColor(Color.BLACK);
+                                recent_search.setBackgroundColor(Color.WHITE);
+                                recent_search.setTextColor(Color.BLACK);
                                 mWebViewInterface.changeTheme(is_theme_white);
                             }
                         }
@@ -155,15 +163,16 @@ public class MainActivity extends BaseActivity {
         if(getIntent() != null && getIntent().getStringExtra("SubwayLocationAPIKey") != null)
             subwayLocationAPIKey = getIntent().getStringExtra("SubwayLocationAPIKey");
         initView();
-        start_activity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
-                intent.putExtra("boolean-keyword", true);
 
-                startActivity(intent);
-            }
-        });
+//        start_activity.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+//                intent.putExtra("boolean-keyword", true);
+//
+//                startActivity(intent);
+//            }
+//        });
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data){

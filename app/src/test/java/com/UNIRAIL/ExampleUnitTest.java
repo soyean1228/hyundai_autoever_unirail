@@ -1,4 +1,4 @@
-package com.UNIRAIL;
+package com.unirail;
 
 import org.junit.Test;
 
