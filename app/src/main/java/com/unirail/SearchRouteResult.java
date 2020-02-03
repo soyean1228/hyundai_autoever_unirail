@@ -185,6 +185,9 @@ public class SearchRouteResult extends BaseActivity {
         System.out.println(finalStation);
 
         textTime.setText(time);
+        if(! startStation.contains("역")) {
+            startStation = startStation + "역";
+        }
         start_station.setText(startStation);
         //middle_station.setText(middleStation[0]);
         final_station.setText(finalStation);

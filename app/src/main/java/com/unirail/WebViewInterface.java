@@ -4,11 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
-
-/**
- * Created by eunhye Lee on 2017-08-08.
- */
-
 public class WebViewInterface {
      WebView mAppView;
      boolean is_theme_white;

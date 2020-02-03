@@ -38,10 +38,6 @@ import kr.go.seoul.trafficsubway.Common.FontUtils;
 import kr.go.seoul.trafficsubway.Common.RealtimeStationArrivalInfo;
 import kr.go.seoul.trafficsubway.Common.StationInfo;
 
-/**
- * Created by eunhye Lee on 2017-08-08.
- */
-
 public class TrafficSubwayInfo extends BaseActivity
 {
     private int heightPx;
@@ -135,13 +131,15 @@ public class TrafficSubwayInfo extends BaseActivity
         }
 
         this.heightPx = (int) TypedValue.applyDimension(1, 27.0F, this.getResources().getDisplayMetrics());
-        if(this.getIntent() != null && this.getIntent().getStringExtra("OpenAPIKey") != null) {
-            this.openAPIKey = this.getIntent().getStringExtra("OpenAPIKey");
-        }
+//        if(this.getIntent() != null && this.getIntent().getStringExtra("OpenAPIKey") != null) {   //-beta 1.3 build 0128
+//            this.openAPIKey = this.getIntent().getStringExtra("OpenAPIKey");                      //-beta 1.3 build 0128
+//        }                                                                                         //-beta 1.3 build 0128
+        openAPIKey=UniRail.default_key;                                                             //+beta 1.3 build 0128
 
-        if(this.getIntent() != null && this.getIntent().getStringExtra("SubwayLocationAPIKey") != null) {
-            this.subwayLocationAPIKey = this.getIntent().getStringExtra("SubwayLocationAPIKey");
-        }
+//        if(this.getIntent() != null && this.getIntent().getStringExtra("SubwayLocationAPIKey") != null) {//-beta 1.3 build 0128
+//            this.subwayLocationAPIKey = this.getIntent().getStringExtra("SubwayLocationAPIKey");  //-beta 1.3 build 0128
+//        }                                                                                         //-beta 1.3 build 0128
+        openAPIKey=UniRail.realtime_station_key;                                                    //+beta 1.3 build 0128
 
         if(this.getIntent() != null && this.getIntent().getStringExtra("StationNM") != null) {
             this.stationNM = this.getIntent().getStringExtra("StationNM");
@@ -454,11 +452,11 @@ public class TrafficSubwayInfo extends BaseActivity
 
                     if(extra.getBoolean("is_theme_white")==false)
                     {
-                        time.setTextColor(Color.parseColor("#00000"));
+                        time.setTextColor(Color.BLACK);
                     }
                     else
                     {
-                        time.setTextColor(Color.parseColor("#FFFFFF"));
+                        time.setTextColor(Color.WHITE);
                     }
                     if(((FirstLastTimeInfo)this.firstLastTimeInfoArrayList.get(i)).getLastcarDiv().equals("1")) {
                         time.setText(((FirstLastTimeInfo)this.firstLastTimeInfoArrayList.get(i)).getWeekendTranHour() + " " + ((FirstLastTimeInfo)this.firstLastTimeInfoArrayList.get(i)).getSubwayename());
@@ -475,11 +473,11 @@ public class TrafficSubwayInfo extends BaseActivity
 
                     if(extra.getBoolean("is_theme_white")==false)
                     {
-                        time.setTextColor(Color.parseColor("#000000"));
+                        time.setTextColor(Color.BLACK);
                     }
                     else
                     {
-                        time.setTextColor(Color.parseColor("#FFFFFF"));
+                        time.setTextColor(Color.WHITE);
                     }
                     if(((FirstLastTimeInfo)this.firstLastTimeInfoArrayList.get(i)).getLastcarDiv().equals("1")) {
                         time.setText(((FirstLastTimeInfo)this.firstLastTimeInfoArrayList.get(i)).getWeekendTranHour() + " " + ((FirstLastTimeInfo)this.firstLastTimeInfoArrayList.get(i)).getSubwayename());
@@ -1019,4 +1017,3 @@ public class TrafficSubwayInfo extends BaseActivity
         }
     }
 }
-
