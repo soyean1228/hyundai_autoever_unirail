@@ -11,31 +11,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.UNIRAIL.MainActivity">
+    tools:context="com.unirail.MainActivity">
 
     <RelativeLayout
         android:id="@+id/Rlayout"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="#000000"
-        android:paddingLeft="12dp">
+        android:paddingLeft="12dp"
+        android:background="#BBE2FB">
 
         <TextView
             android:id="@+id/textmain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
-            android:background="#000000"
             android:gravity="center"
-            android:text="경로 탐색 결과"
-            android:textColor="#FFFFFF"
+            android:text="최근 경로 탐색 결과"
+            android:textColor="#000000"
             android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/btn_back_subway"
-            android:layout_width="30sp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/btn_back_subway_black" />
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/btn_back_sub" />
 
     </RelativeLayout>
 

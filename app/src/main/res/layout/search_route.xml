@@ -6,13 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.UNIRAIL.MainActivity">
+    tools:context="com.unirail.MainActivity">
 
     <RelativeLayout
         android:id="@+id/Rlayout"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:paddingLeft="12dp">
+        android:paddingLeft="12dp"
+        android:background="#BBE2FB">
 
         <TextView
             android:id="@+id/textmain"
@@ -21,7 +22,8 @@
             android:gravity="center"
             android:text="경로 검색"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:background="#BBE2FB"/>
 
         <ImageView
             android:id="@+id/btn_back_subway"

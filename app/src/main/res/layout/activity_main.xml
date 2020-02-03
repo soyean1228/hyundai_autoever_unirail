@@ -6,19 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.UNIRAIL.MainActivity">
+    tools:context="com.unirail.MainActivity">
 
     <RelativeLayout
         android:id="@+id/Rlayout"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:paddingLeft="12dp">
+        android:paddingLeft="12dp"
+        android:background="#BBE2FB">
 
         <TextView
             android:id="@+id/textmain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
+            android:background="#BBE2FB"
             android:gravity="center"
             android:text="지하철정보"
             android:textColor="#000000"
@@ -37,21 +39,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:text="1.경로 검색 " />
+        android:text="1.경로 검색 "
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/recent_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:text="2.최근 경로" />
+        android:text="2.최근 경로"
+        android:textColor="#000000"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/station_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:text="3.역정보" />
+        android:text="3.역정보"
+        android:textColor="#000000"
+        android:textSize="18sp" />
 
 <!--    <Button-->
 <!--        android:id="@+id/start_activity"-->
@@ -65,14 +72,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:text="black theme" />
+        android:text="black theme"
+        android:textColor="#000000"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/white_theme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:text="white theme" />
+        android:text="white theme"
+        android:textSize="18sp" />
 
     <View
         android:layout_width="match_parent"
@@ -97,8 +107,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="이 앱은 현대오토에버와 서울사회복지공동모금회의 지원으로  제작되었습니다"
+        android:text="이 앱은 현대오토에버와 서울사회복지공동모금회가 지원하는 배리어프리 앱 개발 콘테스트의 출품작입니다"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
 </LinearLayout>

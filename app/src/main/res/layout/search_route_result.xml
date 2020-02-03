@@ -11,13 +11,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="com.UNIRAIL.MainActivity">
+    android:background="#BBE2FB"
+    tools:context="com.unirail.MainActivity">
 
     <RelativeLayout
         android:id="@+id/Rlayout"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:paddingLeft="12dp">
+        android:paddingLeft="12dp"
+        android:background="#BBE2FB">
 
         <TextView
             android:id="@+id/textmain"
