@@ -29,11 +29,11 @@
             android:textColor="#000000"
             android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/btn_back_subway"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/btn_back_sub" />
+<!--        <ImageView-->
+<!--            android:id="@+id/btn_back_subway"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:src="@drawable/btn_back_sub" />-->
 
     </RelativeLayout>
 
@@ -128,13 +128,14 @@
         android:layout_width="match_parent"
         android:layout_height="40sp"
         android:layout_gravity="center"
-        android:divider="@color/selected_text_color"
         android:gravity="center"
         android:orientation="horizontal"
         android:textAlignment="center"
         android:background="#000000"
         android:textColor="#FFFFFF"
         android:textDirection="inherit" />
+<!--        android:divider="@color/selected_text_color"-->
+        
 
     <TextView
         android:id="@+id/finalStation_text"
@@ -162,7 +163,7 @@
     <Button
         android:id="@+id/navigate"
         android:layout_width="match_parent"
-        android:layout_height="40sp"
+        android:layout_height="50sp"
         android:gravity="center"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"

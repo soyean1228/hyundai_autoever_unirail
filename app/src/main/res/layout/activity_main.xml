@@ -5,6 +5,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     tools:context="com.unirail.MainActivity">
 
@@ -22,15 +23,9 @@
 
             android:background="#BBE2FB"
             android:gravity="center"
-            android:text="지하철정보"
+            android:text="UniRail"
             android:textColor="#000000"
             android:textSize="20sp" />
-
-        <ImageView
-            android:id="@+id/btn_back_subway"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/btn_back_sub" />
 
     </RelativeLayout>
 
@@ -84,28 +79,12 @@
         android:text="white theme"
         android:textSize="18sp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#e9e9e9" />
-
-
-    <WebView
-        android:id="@+id/line_map_webview"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" >
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </WebView>
 
     <TextView
         android:id="@+id/설명"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFFFF"
         android:gravity="center"
         android:text="이 앱은 현대오토에버와 서울사회복지공동모금회가 지원하는 배리어프리 앱 개발 콘테스트의 출품작입니다"
         android:textColor="#000000"

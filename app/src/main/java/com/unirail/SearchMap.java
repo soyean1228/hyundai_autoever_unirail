@@ -50,10 +50,10 @@ public class SearchMap extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent intent = new Intent(SearchMap.this, StationMapActivity.class);
-                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
-                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
+//                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
+//                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
                 intent.putExtra("StationNM", edit.getText().toString());
-                WebViewInterface.mContext.startActivity(intent);
+//                WebViewInterface.mContext.startActivity(intent);
                 startActivity(intent);
             }
         });
@@ -74,8 +74,8 @@ public class SearchMap extends Activity {
                 Intent intent = new Intent(SearchMap.this, StationMapActivity.class);
                 // intent.putExtra("is_theme_white", is_theme_white);
                 intent.putExtra("boolean-keyword", true);
-                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
-                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
+//                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
+//                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
                 intent.putExtra("StationNM", itemTitle);
                 intent.putExtra("is_theme_white", is_theme_white);
 

@@ -29,12 +29,6 @@
             android:textColor="#000000"
             android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/btn_back_subway"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/btn_back_sub" />
-
     </RelativeLayout>
 
     <View
@@ -114,9 +108,9 @@
         android:id="@+id/middleList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="@color/selected_text_color"
         android:gravity="center"
         android:textAlignment="center" />
+    <!--        android:divider="@color/selected_text_color"-->
 
     <TextView
         android:id="@+id/finalStation_text"
@@ -141,12 +135,12 @@
     <Button
         android:id="@+id/navigate"
         android:layout_width="match_parent"
-        android:layout_height="40sp"
+        android:layout_height="50sp"
         android:gravity="center"
+        android:text="안내 시작"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textSize="24sp"
-        android:text="안내 시작" />
+        android:textSize="24sp" />
 
 
 </LinearLayout>

@@ -48,8 +48,8 @@ public class StartSearchActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = getIntent();
-                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
-                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
+//                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
+//                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
                 intent.putExtra("StationNM", edit.getText().toString());
                 intent.putExtra("is_start","true");
                 intent.putExtra("start",getIntent().getStringExtra("start"));
@@ -76,8 +76,8 @@ public class StartSearchActivity extends Activity {
 
                 Intent intent=getIntent();
                 intent.putExtra("boolean-keyword", true);
-                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
-                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
+//                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
+//                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
                 intent.putExtra("StationNM", itemTitle);
                 intent.putExtra("is_theme_white", is_theme_white);
                 intent.putExtra("is_start",true);

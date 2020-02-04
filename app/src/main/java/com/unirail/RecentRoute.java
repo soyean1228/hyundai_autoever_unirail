@@ -4,13 +4,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.app.AlertDialog;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
+//import kr.go.seoul.trafficsubway.Common.BaseActivity;
 
-import kr.go.seoul.trafficsubway.Common.BaseActivity;
-
-public class RecentRoute extends BaseActivity {
+public class RecentRoute extends AppCompatActivity  {
     public DBmanager dbmanager;
     public String startStation = "";
     public String finalStation = "";
@@ -58,18 +59,22 @@ public class RecentRoute extends BaseActivity {
         start_linenum = (TextView)findViewById(R.id.startLineNum);
         start_raillinklist_num = (TextView)findViewById(R.id.startRailLinkListNum);
 
-        System.out.println("--------------------------");
-        System.out.println(this.startStation);
-        System.out.println(this.finalStation);
-
-
-
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
         dbmanager = DBmanager.getInstance(getApplicationContext());
         SQLiteDatabase db = dbmanager.getReadableDatabase();
-        //startStation = db.getData();
         Cursor cursor =db.rawQuery("SELECT TIME,STARTSTATION,FINALSTATION,STARTLINENUM,STARTRAILLINKLISTNUM,MIDDLESTATION0,MIDDLESTATION1,MIDDLESTATION2,MIDDLELINENUM0,MIDDLELINENUM1,MIDDLELINENUM2,MIDDLERAILLINKLISTNUM0,MIDDLERAILLINKLISTNUM1,MIDDLERAILLINKLISTNUM2 FROM ROUTESTATION", null);
-        cursor.moveToFirst();
+        //cursor.moveToFirst();
+        if (cursor.getCount() == 0){
+            System.out.println("없어!!!");
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("최근 검색 기록이 없습니다.");
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+        }else{
+            System.out.println("있어!!!");
+            //System.out.println(cursor.getCount());
+        }
+
         while(!cursor.isAfterLast()){
             time = cursor.getString(0);
             startStation = cursor.getString(1);

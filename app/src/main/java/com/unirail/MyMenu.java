@@ -7,7 +7,7 @@ public class MyMenu {
     private ArrayList<String> subwayName;
     private HashMap<String, ArrayList<String>> mMenu;
     private String stationNM[] = {"가능",
-            "가락시장",
+            //"가락시장",
             "가산디지털단지",
             "가양",
             //"가정",

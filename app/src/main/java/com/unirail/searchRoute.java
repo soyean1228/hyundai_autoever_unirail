@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
+//import kr.go.seoul.trafficsubway.Common.BaseActivity;
 
-import kr.go.seoul.trafficsubway.Common.BaseActivity;
-
-public class searchRoute extends BaseActivity {
+public class searchRoute extends AppCompatActivity {
 
     boolean is_theme_white = true;
 
@@ -82,7 +82,7 @@ public class searchRoute extends BaseActivity {
             r.setFinalStation(stationNM);
             final_station.setText(r.getFinalStation());
         }
-        initView();
+//        initView();
 
         start_search.setOnClickListener(
                 new View.OnClickListener()
@@ -165,24 +165,24 @@ public class searchRoute extends BaseActivity {
         }
     }
 
-    private void initView()
-    {
-        btnBackSubway = (ImageView)findViewById(R.id.btn_back_subway);
-        btnBackSubway.setOnClickListener(new View.OnClickListener()
-                                         {
-
-                                             public void onClick(View view)
-                                             {
-                                                 finish();
-                                             }
-                                             final searchRoute this$0;
-                                             {
-                                                 this.this$0 = searchRoute.this;
-                                             }
-                                         }
-        );
-
-    }
+//    private void initView()
+//    {
+//        btnBackSubway = (ImageView)findViewById(R.id.btn_back_subway);
+//        btnBackSubway.setOnClickListener(new View.OnClickListener()
+//                                         {
+//
+//                                             public void onClick(View view)
+//                                             {
+//                                                 finish();
+//                                             }
+//                                             final searchRoute this$0;
+//                                             {
+//                                                 this.this$0 = searchRoute.this;
+//                                             }
+//                                         }
+//        );
+//
+//    }
 
 
     private String openAPIKey;

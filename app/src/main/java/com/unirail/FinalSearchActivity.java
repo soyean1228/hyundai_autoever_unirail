@@ -45,21 +45,21 @@ public class FinalSearchActivity extends Activity {
         edit.setAdapter(arrayAdapter);
 
         // 메뉴 선택 시 해당 메뉴 Recipe Activity. start()
-        edit.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent intent = new Intent(FinalSearchActivity.this, TrafficSubwayInfo.class);
-                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
-                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
-                intent.putExtra("StationNM", edit.getText().toString());
-                intent.putExtra("start",getIntent().getStringExtra("start"));
-                intent.putExtra("final",getIntent().getStringExtra("final"));
-                intent.putExtra("INPUT_TEXT",edit.getText().toString());
-                setResult(RESULT_OK,intent);
-                finish();
-            }
-        });
+//        edit.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                Intent intent = new Intent(FinalSearchActivity.this, TrafficSubwayInfo.class);
+//                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
+//                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
+//                intent.putExtra("StationNM", edit.getText().toString());
+//                intent.putExtra("start",getIntent().getStringExtra("start"));
+//                intent.putExtra("final",getIntent().getStringExtra("final"));
+//                intent.putExtra("INPUT_TEXT",edit.getText().toString());
+//                setResult(RESULT_OK,intent);
+//                finish();
+//            }
+//        });
 
 
         ListView list = (ListView)findViewById(R.id.listViewSearch);
@@ -79,8 +79,8 @@ public class FinalSearchActivity extends Activity {
                 Intent intent=getIntent();
                 String start = getIntent().getStringExtra("start");
                 intent.putExtra("boolean-keyword", true);
-                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
-                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
+//                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
+//                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
                 intent.putExtra("StationNM", itemTitle);
                 intent.putExtra("is_theme_white", is_theme_white);
                 intent.putExtra("start",getIntent().getStringExtra("start"));

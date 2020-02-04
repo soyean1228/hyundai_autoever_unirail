@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -12,9 +13,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import kr.go.seoul.trafficsubway.Common.BaseActivity;
+//import kr.go.seoul.trafficsubway.Common.BaseActivity;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity {
 
     boolean is_theme_white = false;
     private DBmanager db;
@@ -25,6 +26,7 @@ public class MainActivity extends BaseActivity {
     private RelativeLayout Rlayout;
     private Button station_info;
     private Button recent_search;
+    public TextView 설명;
     static  final int GET_STRING = 1;
 
     private TextView textmain;
@@ -47,6 +49,7 @@ public class MainActivity extends BaseActivity {
         white_theme = findViewById(R.id.white_theme);
         search_route = findViewById(R.id.search_route);
         textmain = findViewById(R.id.textmain);
+        설명 = findViewById(R.id.설명);
         //start_activity=findViewById(R.id.start_activity);
         station_info = findViewById(R.id.station_info);
         ///////////////
@@ -114,7 +117,9 @@ public class MainActivity extends BaseActivity {
                                 station_info.setTextColor(Color.WHITE);
                                 recent_search.setBackgroundColor(Color.BLACK);
                                 recent_search.setTextColor(Color.WHITE);
-                                mWebViewInterface.changeTheme(is_theme_white);
+                                설명.setTextColor(Color.WHITE);
+                                설명.setBackgroundColor(Color.BLACK);
+//                                mWebViewInterface.changeTheme(is_theme_white);
                             }
                         }
                 );
@@ -141,7 +146,9 @@ public class MainActivity extends BaseActivity {
                                 station_info.setTextColor(Color.BLACK);
                                 recent_search.setBackgroundColor(Color.WHITE);
                                 recent_search.setTextColor(Color.BLACK);
-                                mWebViewInterface.changeTheme(is_theme_white);
+                                설명.setTextColor(Color.BLACK);
+                                설명.setBackgroundColor(Color.WHITE);
+//                                mWebViewInterface.changeTheme(is_theme_white);
                             }
                         }
                 );
@@ -162,7 +169,7 @@ public class MainActivity extends BaseActivity {
             openAPIKey = getIntent().getStringExtra("OpenAPIKey");
         if(getIntent() != null && getIntent().getStringExtra("SubwayLocationAPIKey") != null)
             subwayLocationAPIKey = getIntent().getStringExtra("SubwayLocationAPIKey");
-        initView();
+        //initView();
 
 //        start_activity.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -192,43 +199,43 @@ public class MainActivity extends BaseActivity {
         else {
             System.out.println("true=검정1");
         }
-        btnBackSubway = (ImageView)findViewById(R.id.btn_back_subway);
-        btnBackSubway.setOnClickListener(new View.OnClickListener()
-                                         {
-
-                                             public void onClick(View view)
-                                             {
-                                                 System.out.println(is_theme_white);
-                                                 finish();
-                                             }
-
-                                             final MainActivity this$0;
-
-                                             {
-                                                 this.this$0 = MainActivity.this;
-                                                 // super();
-                                             }
-                                         }
-        );
-        lineMapWebview = (WebView)findViewById(R.id.line_map_webview);
-        lineMapWebview.setWebViewClient(new WebViewClient());
-        lineMapWebview.getSettings().setJavaScriptEnabled(true);
-        lineMapWebview.getSettings().setBuiltInZoomControls(true);
-        lineMapWebview.getSettings().setSupportZoom(true);
-        lineMapWebview.getSettings().setDisplayZoomControls(false);
-        lineMapWebview.getSettings().setDefaultTextEncodingName("UTF-8");
-        mWebViewInterface = new WebViewInterface(this, lineMapWebview, openAPIKey, subwayLocationAPIKey);
-        lineMapWebview.addJavascriptInterface(mWebViewInterface, "Android");
-        lineMapWebview.loadUrl("file:///android_asset/mSeoul_Subway.html");
-        // Intent intent = new Intent(MainActivity.this, WebViewInterface.class);
-        // intent.putExtra("is_theme_white", is_theme_white);
+//        btnBackSubway = (ImageView)findViewById(R.id.btn_back_subway);
+//        btnBackSubway.setOnClickListener(new View.OnClickListener()
+//                                         {
+//
+//                                             public void onClick(View view)
+//                                             {
+//                                                 System.out.println(is_theme_white);
+//                                                 finish();
+//                                             }
+//
+//                                             final MainActivity this$0;
+//
+//                                             {
+//                                                 this.this$0 = MainActivity.this;
+//                                                 // super();
+//                                             }
+//                                         }
+//        );
+//        lineMapWebview = (WebView)findViewById(R.id.line_map_webview);
+//        lineMapWebview.setWebViewClient(new WebViewClient());
+//        lineMapWebview.getSettings().setJavaScriptEnabled(true);
+//        lineMapWebview.getSettings().setBuiltInZoomControls(true);
+//        lineMapWebview.getSettings().setSupportZoom(true);
+//        lineMapWebview.getSettings().setDisplayZoomControls(false);
+//        lineMapWebview.getSettings().setDefaultTextEncodingName("UTF-8");
+//        mWebViewInterface = new WebViewInterface(this, lineMapWebview, openAPIKey, subwayLocationAPIKey);
+//        lineMapWebview.addJavascriptInterface(mWebViewInterface, "Android");
+//        lineMapWebview.loadUrl("file:///android_asset/mSeoul_Subway.html");
+//        // Intent intent = new Intent(MainActivity.this, WebViewInterface.class);
+//        // intent.putExtra("is_theme_white", is_theme_white);
     }
 
 
     private String openAPIKey;
     private String subwayLocationAPIKey;
     private ImageView btnBackSubway;
-    private WebView lineMapWebview;
-    private WebViewInterface mWebViewInterface;
+//    private WebView lineMapWebview;
+//    private WebViewInterface mWebViewInterface;
 }
 

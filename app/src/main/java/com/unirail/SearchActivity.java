@@ -44,23 +44,23 @@ public class SearchActivity extends Activity {
 
         items.addAll(menu.getMenu("subway"));
 
-        final AutoCompleteTextView edit = (AutoCompleteTextView) findViewById(R.id.searchText);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,items);
-        edit.setAdapter(arrayAdapter);
-
-        // 메뉴 선택 시 해당 메뉴 Recipe Activity. start()
-        edit.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent intent = new Intent(SearchActivity.this, TrafficSubwayInfo.class);
-                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
-                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
-                intent.putExtra("StationNM", edit.getText().toString());
-                WebViewInterface.mContext.startActivity(intent);
-                startActivity(intent);
-            }
-        });
+//        final AutoCompleteTextView edit = (AutoCompleteTextView) findViewById(R.id.searchText);
+//        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,items);
+//        edit.setAdapter(arrayAdapter);
+//
+//        // 메뉴 선택 시 해당 메뉴 Recipe Activity. start()
+//        edit.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                Intent intent = new Intent(SearchActivity.this, TrafficSubwayInfo.class);
+//                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
+//                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
+//                intent.putExtra("StationNM", edit.getText().toString());
+//                WebViewInterface.mContext.startActivity(intent);
+//                startActivity(intent);
+//            }
+//        });
 
 
         ListView list = (ListView)findViewById(R.id.listViewSearch);
@@ -100,12 +100,12 @@ public class SearchActivity extends Activity {
                 Intent intent = new Intent(SearchActivity.this, searchRoute.class);
                 // intent.putExtra("is_theme_white", is_theme_white);
                 intent.putExtra("boolean-keyword", true);
-                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
-                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
+//                intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
+//                intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
                 intent.putExtra("StationNM", itemTitle);
                 intent.putExtra("is_theme_white", is_theme_white);
 
-                WebViewInterface.mContext.startActivity(intent);
+//                WebViewInterface.mContext.startActivity(intent);
                 startActivity(intent);
             }
         });

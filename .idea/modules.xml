@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/soyean_unirail.iml" filepath="$PROJECT_DIR$/soyean_unirail.iml" />
+      <module fileurl="file://$PROJECT_DIR$/soyean_unirail-master.iml" filepath="$PROJECT_DIR$/soyean_unirail-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/trafficsubway-release/trafficsubway-release.iml" filepath="$PROJECT_DIR$/trafficsubway-release/trafficsubway-release.iml" />
     </modules>
   </component>

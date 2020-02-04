@@ -26,11 +26,11 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import android.support.v7.app.AppCompatActivity;
 
+//import kr.go.seoul.trafficsubway.Common.BaseActivity;
 
-import kr.go.seoul.trafficsubway.Common.BaseActivity;
-
-public class SearchRouteResult extends BaseActivity {
+public class SearchRouteResult extends AppCompatActivity {
     public DBmanager dbmanager;
     public String openAPIKey = "70575677706d696333327152507752";
     public String subwayLocationAPIKey = "70575677706d696333327152507752";
