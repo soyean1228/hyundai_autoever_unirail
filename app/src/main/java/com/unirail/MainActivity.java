@@ -10,8 +10,11 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.unirail.Channel.Channel_main;
 
 //import kr.go.seoul.trafficsubway.Common.BaseActivity;
 
@@ -23,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
     private Button white_theme;
     private Button search_route;
     private Button start_activity;
+    private Button Channel;
     private RelativeLayout Rlayout;
+    private LinearLayout main;
     private Button station_info;
     private Button recent_search;
     public TextView 설명;
@@ -50,10 +55,12 @@ public class MainActivity extends AppCompatActivity {
         search_route = findViewById(R.id.search_route);
         textmain = findViewById(R.id.textmain);
         설명 = findViewById(R.id.설명);
-        //start_activity=findViewById(R.id.start_activity);
+        start_activity=findViewById(R.id.start_activity);
         station_info = findViewById(R.id.station_info);
+        main = findViewById(R.id.main);
         ///////////////
         recent_search = findViewById(R.id.recent_search);
+        Channel=findViewById(R.id.channel);
         recent_search.setOnClickListener(
                 new View.OnClickListener()
                 {
@@ -119,7 +126,12 @@ public class MainActivity extends AppCompatActivity {
                                 recent_search.setTextColor(Color.WHITE);
                                 설명.setTextColor(Color.WHITE);
                                 설명.setBackgroundColor(Color.BLACK);
+                                start_activity.setTextColor(Color.WHITE);
+                                start_activity.setBackgroundColor(Color.BLACK);
+                                Channel.setTextColor(Color.WHITE);
+                                Channel.setBackgroundColor(Color.BLACK);
 //                                mWebViewInterface.changeTheme(is_theme_white);
+                                main.setBackgroundColor(Color.BLACK);
                             }
                         }
                 );
@@ -131,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(View v)
                             {
                                 is_theme_white =false;
+                                main.setBackgroundColor(Color.WHITE);
                                 black_theme.setBackgroundColor(Color.WHITE);
                                 white_theme.setBackgroundColor(Color.WHITE);
                                 textmain.setTextColor(Color.BLACK);
@@ -148,6 +161,10 @@ public class MainActivity extends AppCompatActivity {
                                 recent_search.setTextColor(Color.BLACK);
                                 설명.setTextColor(Color.BLACK);
                                 설명.setBackgroundColor(Color.WHITE);
+                                start_activity.setTextColor(Color.BLACK);
+                                start_activity.setBackgroundColor(Color.WHITE);
+                                Channel.setTextColor(Color.BLACK);
+                                Channel.setBackgroundColor(Color.WHITE);
 //                                mWebViewInterface.changeTheme(is_theme_white);
                             }
                         }
@@ -171,15 +188,28 @@ public class MainActivity extends AppCompatActivity {
             subwayLocationAPIKey = getIntent().getStringExtra("SubwayLocationAPIKey");
         //initView();
 
-//        start_activity.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
-//                intent.putExtra("boolean-keyword", true);
-//
-//                startActivity(intent);
-//            }
-//        });
+        start_activity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                intent.putExtra("boolean-keyword", true);
+                intent.putExtra("is_theme_white", is_theme_white);
+                startActivity(intent);
+            }
+        });
+
+        Channel.setOnClickListener
+                (
+                        new View.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(View v)
+                            {
+                                final Intent intent=new Intent(MainActivity.this, Channel_main.class);
+                                startActivity(intent);
+                            }
+                        }
+                );
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data){

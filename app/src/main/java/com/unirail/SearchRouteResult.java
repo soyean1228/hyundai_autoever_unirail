@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.unirail.UNIRAIL_service.UNIRAIL_service;
+import com.unirail.Navigator.Navigator;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -66,16 +66,16 @@ public class SearchRouteResult extends AppCompatActivity {
     public int middleNum = 0;
     private Button navigate;
 
-    private final ArrayList<UNIRAIL_service.argument_for_naviation> arguments=new ArrayList<UNIRAIL_service.argument_for_naviation>();  //+beta 1.2 build 0127
-    private UNIRAIL_service.argument_for_naviation argument;                                        //+beta 1.2 build 0127
+    private final ArrayList<Navigator.argument_for_naviation> arguments=new ArrayList<Navigator.argument_for_naviation>();  //+beta 1.2 build 0127
+    private Navigator.argument_for_naviation argument;                                        //+beta 1.2 build 0127
 
-    private UNIRAIL_service service;                                                                //+beta 1.2 build 0127
+    private Navigator Navigator;                                                                //+beta 1.2 build 0127
     private final ServiceConnection connection = new ServiceConnection()                            //+beta 1.2 build 0127
     {                                                                                               //+beta 1.2 build 0127
         @Override                                                                                   //+beta 1.2 build 0127
         public void onServiceConnected(ComponentName name, IBinder binder)                          //+beta 1.2 build 0127
         {                                                                                           //+beta 1.2 build 0127
-            service = ((UNIRAIL_service.binder) binder).get_service();                              //+beta 1.2 build 0127
+            Navigator = ((Navigator.binder) binder).get_Navigator();                              //+beta 1.2 build 0127
         }                                                                                           //+beta 1.2 build 0127
 
         @Override                                                                                   //+beta 1.2 build 0127
@@ -242,7 +242,7 @@ public class SearchRouteResult extends AppCompatActivity {
         list.setLayoutParams(params);
         /////////////////////////////////////
 
-        bindService(new Intent(this, UNIRAIL_service.class), connection, Context.BIND_AUTO_CREATE);
+        bindService(new Intent(this, Navigator.class), connection, Context.BIND_AUTO_CREATE);
 
         navigate.setOnClickListener
                 (
@@ -251,7 +251,7 @@ public class SearchRouteResult extends AppCompatActivity {
                             @Override                                                                   //+beta 1.2 build 0127
                             public void onClick(View view)                                              //+beta 1.2 build 0127
                             {
-                                service.navigate((UNIRAIL_service.argument_for_naviation[])arguments.toArray(new UNIRAIL_service.argument_for_naviation[arguments.size()]));
+                                Navigator.navigate((Navigator.argument_for_naviation[])arguments.toArray(new Navigator.argument_for_naviation[arguments.size()]));
                             }
                         }
                 );
@@ -524,7 +524,7 @@ public class SearchRouteResult extends AppCompatActivity {
                 //url = new URL("http://ws.bus.go.kr/api/rest/pathinfo/getPathInfoBySubway?ServiceKey=FgYWtyQY6EGgb5Yl4%2B1jT5cmRUYrK1Ht%2BetulrZ0YCKnSCoh%2FzgAXkh8r3ukrvo6Qpheo7ruYP5TMNJE5XA8PA%3D%3D&startX=126.83948388112836&startY=37.558210971753226&endX=127.01460762172958&endY=37.57250");
                 ////
                 StringBuilder urlBuilder = new StringBuilder("http://ws.bus.go.kr/api/rest/pathinfo/getPathInfoBySubway");
-                urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=FgYWtyQY6EGgb5Yl4%2B1jT5cmRUYrK1Ht%2BetulrZ0YCKnSCoh%2FzgAXkh8r3ukrvo6Qpheo7ruYP5TMNJE5XA8PA%3D%3D"); /*Service Key*/
+                urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=Z%2FjVfZm9b%2FE81kYcXJwWRnNIJLUMnEaJXuyOPjT0ymkCNjCQ%2Bs85uc74l9qpJKr%2FzROsWlqeRbNPEqoA7jWsdQ%3D%3D"); /*Service Key*/
                 urlBuilder.append("&" + URLEncoder.encode("startX","UTF-8") + "=" + URLEncoder.encode(strings[1], "UTF-8")); /*출발지X좌표*/
                 urlBuilder.append("&" + URLEncoder.encode("startY","UTF-8") + "=" + URLEncoder.encode(strings[0], "UTF-8")); /*출발지Y좌표*/
                 urlBuilder.append("&" + URLEncoder.encode("endX","UTF-8") + "=" + URLEncoder.encode(strings[3], "UTF-8")); /*목적지X좌표*/
@@ -559,7 +559,7 @@ public class SearchRouteResult extends AppCompatActivity {
                                 startCode[0] = str;
                                 buffer.append(str);//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
                                 buffer.append("\n"); //줄바꿈 문자 추가
-                                argument=new UNIRAIL_service.argument_for_naviation();              //+beta 1.2 build 0127
+                                argument=new Navigator.argument_for_naviation();              //+beta 1.2 build 0127
                                 argument.set_fid(str);
                                 break;
                             }
@@ -634,7 +634,7 @@ public class SearchRouteResult extends AppCompatActivity {
                                 Log.d("subwayNm",argument.get_subwayNm());                     //+beta 1.2 build 0127
                                 Log.d("to_arrival_station",Integer.toString(argument.get_from_departure_station_to_arrival_station()));//+beta 1.2 build 0127
                                 Log.d("tid",argument.get_tid());                               //+beta 1.2 build 0127
-                                argument=new UNIRAIL_service.argument_for_naviation();              //+beta 1.2 build 0127
+                                argument=new Navigator.argument_for_naviation();              //+beta 1.2 build 0127
                                 argument.set_fid(tid);                                              //+beta 1.2 build 0127
                                 break;
                             }

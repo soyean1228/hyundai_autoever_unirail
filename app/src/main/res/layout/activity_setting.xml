@@ -1,34 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout"
+
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.unirail.MainActivity">
 
-    <Button
-        android:id="@+id/black_theme"
-        android:layout_width="112dp"
-        android:layout_height="46dp"
-        android:text="저시력 모드"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="132dp" />
+    <RelativeLayout
+        android:id="@+id/Rlayout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:paddingLeft="12dp"
+        android:background="#BBE2FB">
+        <TextView
+            android:id="@+id/textmain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-    <Button
-        android:id="@+id/white_theme"
-        android:layout_width="111dp"
-        android:layout_height="44dp"
-        android:text="화이트테마"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="178dp"
-        tools:ignore="MissingConstraints" />
+            android:gravity="center"
+            android:text="설정"
+            android:textColor="#000000"
+            android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/start_activity"
-        android:layout_width="wrap_content"
+    </RelativeLayout>
+
+    <Switch
+        android:id="@+id/does_notify_importantly"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="home"
-        tools:ignore="MissingConstraints" />
+        android:text="1 헤즈업 알림"
+        android:background="#FFFFFF"
+        android:textAlignment="center"
+        android:textSize="20sp" />
 
-</android.support.constraint.ConstraintLayout>
+    <Switch
+        android:id="@+id/does_indicate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:background="#FFFFFF"
+        android:textAlignment="center"
+        android:text="2 방향 안내" />
+
+    <Switch
+        android:id="@+id/does_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:background="#FFFFFF"
+        android:textAlignment="center"
+        android:text="3 틀린 하차 방지" />
+
+</LinearLayout>

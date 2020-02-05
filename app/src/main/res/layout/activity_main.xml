@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
@@ -55,19 +55,29 @@
         android:textColor="#000000"
         android:textSize="18sp" />
 
-<!--    <Button-->
-<!--        android:id="@+id/start_activity"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="#FFFFFF"-->
-<!--        android:text="4.설정" />-->
+    <Button
+        android:id="@+id/channel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:text="4.UniRail Channel"
+        android:textColor="#000000"
+        android:textSize="18sp" />
 
+    <Button
+        android:id="@+id/start_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:text="5.설정"
+        android:textColor="#000000"
+        android:textSize="18sp" />
     <Button
         android:id="@+id/black_theme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:text="black theme"
+        android:text="고대비 테마"
         android:textColor="#000000"
         android:textSize="18sp" />
 
@@ -76,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:text="white theme"
+        android:text="기본 테마"
         android:textSize="18sp" />
 
 
@@ -89,5 +99,6 @@
         android:text="이 앱은 현대오토에버와 서울사회복지공동모금회가 지원하는 배리어프리 앱 개발 콘테스트의 출품작입니다"
         android:textColor="#000000"
         android:textSize="18sp" />
+
 
 </LinearLayout>
